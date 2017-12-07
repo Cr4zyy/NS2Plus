@@ -126,6 +126,11 @@ local function CHUDSaveMenuSetting(name)
 						if optionName then
 							CHUDSetOptionVisible(mainMenu.CHUDOptionElements[optionName], show)
 
+                            --Indent child options to make menu cleaner
+                            local indentOption = mainMenu.CHUDOptionElements[optionName]
+                            local getIndent = indentOption.label.background:GetPosition()
+                            indentOption.label:SetLeftOffset(getIndent.x + 20)
+                            
 							PropagateVisibility(CHUDOptions[option])
 						end
 					end
